@@ -5,14 +5,19 @@ import scalafx.event.ActionEvent
 import scalafx.Includes._
 import scalafx.scene.paint.Color._
 import scalafx.scene.paint._
-import scalafx.scene.Scene
+import scalafx.scene.{Group, Scene}
 import scalafx.scene.control.{
   Button,
   Label,
   RadioButton,
+  SplitPane,
+  Tab,
+  TabPane,
+  TextArea,
   TextField,
   ToggleGroup
 }
+import scalafx.scene.layout.{FlowPane, VBox}
 import scalafx.scene.text.Text
 
 object ScalaFX extends JFXApp3 {
@@ -21,8 +26,6 @@ object ScalaFX extends JFXApp3 {
 
       title = "Speelsterkte rekentool"
       scene = new Scene(600, 400) {
-
-//        fill = Color.rgb(0, 191, 255)
 
         val labelWinner = new Label("Winnaar")
         labelWinner.layoutX = 30
@@ -85,7 +88,7 @@ object ScalaFX extends JFXApp3 {
         labelWinnerCalcsAway.layoutX = 370
         labelWinnerCalcsAway.layoutY = 170
 
-        content = List(
+        val group = new Group(
           textFieldHomePlayer,
           textFieldAwayPlayer,
           labelHomePlayer,
@@ -96,15 +99,38 @@ object ScalaFX extends JFXApp3 {
           radioButtonAway
         )
 
+        val tabPane = new TabPane
+        val singlesTab = new Tab()
+        singlesTab.text = "Enkelspel"
+        singlesTab.setClosable(false)
+
+        singlesTab.setContent(group)
+        val doublesTab = new Tab
+        doublesTab.text = "Dubbelspel"
+        doublesTab.setClosable(false)
+        tabPane.tabs = List(singlesTab, doublesTab)
+
+        root = tabPane
+
         button.onAction = (e: ActionEvent) => {
           button.layoutY = 270
-          if (!content.contains(labelWinnerTextHome)) {
-            content ++= List(
+
+          if (!group.getChildren.contains(labelWinnerTextHome)) {
+            val groupNew = new Group(
               labelWinnerTextHome,
               labelWinnerTextAway,
               labelWinnerCalcsHome,
-              labelWinnerCalcsAway
+              labelWinnerCalcsAway,
+              textFieldHomePlayer,
+              textFieldAwayPlayer,
+              labelHomePlayer,
+              labelAwayPlayer,
+              button,
+              labelWinner,
+              radioButtonHome,
+              radioButtonAway
             )
+            singlesTab.setContent(groupNew)
           }
 
           val homeRating = textFieldHomePlayer.text.value.toDouble
