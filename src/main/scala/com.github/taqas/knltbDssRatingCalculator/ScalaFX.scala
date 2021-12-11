@@ -8,15 +8,11 @@ import scalafx.scene.control.{
   Button,
   Label,
   RadioButton,
-  SplitPane,
   Tab,
   TabPane,
-  TextArea,
   TextField,
   ToggleGroup
 }
-import scalafx.scene.layout.{FlowPane, VBox}
-import scalafx.scene.text.Text
 
 case class WinnerSelection(
     labelWinner: Label,
@@ -141,13 +137,11 @@ object ScalaFX extends JFXApp3 {
 
       val homeRatingNew =
         homeRating + K * (probHome / 100.0 - winnerSelection.radioButtonHome.isSelected
-          .compare(false)
-          .toInt)
+          .compare(false))
 
       val awayRatingNew =
         awayRating + K * ((100 - probHome) / 100.0 - winnerSelection.radioButtonAway.isSelected
-          .compare(false)
-          .toInt)
+          .compare(false))
 
       val homeRatingDiff = homeRatingNew - homeRating
       val awayRatingDiff = awayRatingNew - awayRating
@@ -287,13 +281,11 @@ object ScalaFX extends JFXApp3 {
 
       val homeRatingNew =
         homeRating + K * (probHome / 100.0 - winnerSelection.radioButtonHome.isSelected
-          .compare(false)
-          .toInt)
+          .compare(false))
 
       val awayRatingNew =
         awayRating + K * ((100 - probHome) / 100.0 - winnerSelection.radioButtonAway.isSelected
-          .compare(false)
-          .toInt)
+          .compare(false))
 
       val homeRatingDiff = homeRatingNew - homeRating
       val awayRatingDiff = awayRatingNew - awayRating
