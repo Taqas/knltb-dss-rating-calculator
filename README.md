@@ -1,20 +1,16 @@
 ## KNLTB DSS rating calculator
 
-This project aims to provide a GUI to calculate your new KNLTB rating.
+This project aims to provide a desktop GUI to calculate your new KNLTB rating.
+An official explanation of the calculations used to determine your rating can be found [here](https://www.tennis.nl/media/ornjxpds/dss-uitgebreide-uitleg.pdf).
 
-## Roadmap
-- Refactor code (DRY)
-- Reestablish calculations
+### TODO
+- Refactor
+- Verify calculations (specifically rounding errors)
 
-## Requirements
+### Preview
 
-- Calculations should be done according to official [explanation](https://www.tennis.nl/media/ornjxpds/dss-uitgebreide-uitleg.pdf) from KNLTB.
-- Code is tested
-- Implement CI/CD pipeline to run tests
+Singles
+![Singles](images/singlesPreview.png)
 
-## Target implementation
-
-[Tool](https://www.tennis.nl/alles-over-tennis/speelsterkte-rating/speelsterkte-rekentool/#ELOTool)
-
-![Target implementation](images/targetImplementation.png)
-
+Doubles
+![Doubles](images/doublesPreview.png)
