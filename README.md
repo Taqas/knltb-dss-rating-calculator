@@ -7,10 +7,8 @@ An official explanation of the calculations used to determine your rating can be
 - Refactor
 - Verify calculations (specifically rounding errors)
 
-### Preview
-
-Singles
+### Preview Singles
 ![Singles](images/singlesPreview.png)
 
-Doubles
+### Preview Doubles  
 ![Doubles](images/doublesPreview.png)
